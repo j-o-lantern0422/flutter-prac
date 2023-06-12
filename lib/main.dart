@@ -60,7 +60,12 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
+        title: Row(
+          children: const [
+            Icon(Icons.create),
+            Text("初めてのタイトル"),
+          ],
+        ),
       ),
       body: Column(children: [
         const Text("HelloWorld!"),
@@ -87,9 +92,13 @@ class _MyHomePageState extends State<MyHomePage> {
               color: Colors.blue,
               size: 36.0,
             ),
-         ],
-        )
-      ])
+         ])
+      ]),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () => {print("押したね？")}, child: const Icon(Icons.timer)
+      ),
+      drawer: const Drawer(child: Center(child: Text("Drawer"))),
+      endDrawer: const Drawer(child: Center(child: Text("EndDrawer"))),
     );
   }
 }
